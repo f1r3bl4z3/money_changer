@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "178640913374",
+    "firebase_url": "https://moneychanger-b26d9-default-rtdb.firebaseio.com",
+    "project_id": "moneychanger-b26d9",
+    "storage_bucket": "moneychanger-b26d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178640913374:android:98560d667038e087cd934f",
+        "android_client_info": {
+          "package_name": "com.android.moneychanger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178640913374-q7f6bnipeegd1t4m4qil67634hu46ghg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN_c1P1IJ2wBCjWky_W94voDwGOcnB2PE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178640913374-q7f6bnipeegd1t4m4qil67634hu46ghg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
