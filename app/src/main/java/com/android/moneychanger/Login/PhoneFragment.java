@@ -18,7 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hbb20.CountryCodePicker;
 import com.android.moneychanger.R;
@@ -28,6 +31,8 @@ public class PhoneFragment extends Fragment implements View.OnClickListener {
     EditText mPhoneNumber;
     Button mNext;
     CountryCodePicker ccp;
+    RadioGroup radioGroup;
+    RadioButton requestor, provider;
 
     View view;
 
@@ -43,11 +48,10 @@ public class PhoneFragment extends Fragment implements View.OnClickListener {
             view = inflater.inflate(R.layout.fragment_authentication_phone, container, false);
         else
             container.removeView(view);
-
-
         return view;
 
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -55,6 +59,21 @@ public class PhoneFragment extends Fragment implements View.OnClickListener {
         initializeObjects();
 
         phoneEditTextButtonColor();
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // find which radio button is selected
+                if(checkedId == R.id.change_requestor) {
+                    Toast.makeText(getApplicationContext(), "choice: Change Requestor",
+                            Toast.LENGTH_SHORT).show();
+                } else if(checkedId == R.id.change_provider) {
+                    Toast.makeText(getApplicationContext(), "choice: Change Provider",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
 
         TextView problemText = getView().findViewById(R.id.problem_text);
         problemText.setOnTouchListener(new View.OnTouchListener() {
@@ -85,7 +104,6 @@ public class PhoneFragment extends Fragment implements View.OnClickListener {
         mPhoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -104,6 +122,17 @@ public class PhoneFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    private String getSelectedRadioButton(){
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+
+        // find which radioButton is checked by id
+        if(selectedId == requestor.getId()) {
+            return "Requestor";
+        } else if(selectedId == provider.getId()) {
+            return "Provider";
+        }
+    }
+
     private String buildPhoneNumber(){
         String phoneBuilt = "";
         phoneBuilt = ccp.getSelectedCountryCodeWithPlus() + mPhoneNumber.getText().toString();
@@ -119,14 +148,20 @@ public class PhoneFragment extends Fragment implements View.OnClickListener {
                     return;
 
                 ((AuthenticationActivity) getActivity()).showProgressDialog("Connecting...");
+                ((AuthenticationActivity) getActivity()).setNextActivity(getSelectedRadioButton());
                 ((AuthenticationActivity) getActivity()).startPhoneNumberVerification(buildPhoneNumber());
                 break;
         }
     }
+
+
     void initializeObjects(){
         mPhoneNumber = view.findViewById(R.id.phone);
         mNext = view.findViewById(R.id.next);
         ccp = view.findViewById(R.id.ccp);
+        radioGroup = view.findViewById(R.id.radioGroup);
+        requestor = view.findViewById(R.id.change_requestor);
+        provider = view.findViewById(R.id.change_provider);
 
         mNext.setOnClickListener(this);
     }

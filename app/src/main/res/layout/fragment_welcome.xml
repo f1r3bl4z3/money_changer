@@ -13,20 +13,19 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/happy"
+        android:src="@drawable/chenchi"
         android:scaleType="centerCrop"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
         android:gravity="center"
         android:text="Welcome!"
-        android:layout_alignParentTop="true"
         android:textColor="@color/black"
-        android:layout_marginTop="36dp"
-        android:textSize="36dp"
-        />
+        android:textSize="36dp" />
 
     <Button
         android:id="@+id/button_agree"
@@ -38,17 +37,5 @@
         android:layout_margin="8dp"
         android:background="@color/colorPrimaryDark"/>
 
-    <TextView
-        android:id="@+id/text_agree"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Welcome"
-        android:layout_above="@+id/button_agree"
-        android:textColor="#01C6DB"
-        android:layout_marginBottom="8dp"
-        android:background="@color/white"
-        />
-
-<!--    android:text="@string/TnC"-->
+    <!--    android:text="@string/TnC"-->
 </RelativeLayout>

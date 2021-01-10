@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="glox will send an SMS to verify your phone number. Enter your phone number below"
+        android:text="Money Changer will send an SMS to verify your phone number. Enter your phone number below"
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textSize="16sp"
@@ -79,10 +79,26 @@
 
 
     </LinearLayout>
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:layout_below="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myRadioGroup"
+        android:checkedButton="@+id/change_requestor" >
+
+        <RadioButton
+            android:id="@+id/change_requestor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Change Requestor" />
+
+        <RadioButton
+            android:id="@+id/change_provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Change Provider" />
+    </RadioGroup>
     <Button
 
         android:layout_marginRight="50sp"
@@ -104,4 +120,6 @@
         android:gravity="center"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="12sp"/>
+
+
 </LinearLayout>

@@ -52,7 +52,7 @@ public class AuthenticationActivity extends AppCompatActivity {
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
-    String phoneNumber, mVerificationId;
+    String phoneNumber, mVerificationId, nextActivity;
 
     ProgressDialog dialog;
 
@@ -210,14 +210,27 @@ public class AuthenticationActivity extends AppCompatActivity {
         return phoneNumber;
     }
 
+    public void setNextActivity(String newActivity){
+        nextActivity = newActivity;
+    }
+
     public void userIsLoggedIn() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
 
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
-            finish();
-            return;
+            if(nextActivity == "Requestor"){
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                finish();
+                return;
+            }
+            else if(nextActivity == "Provider"){
+                Intent i = new Intent(getApplicationContext(), DealerActivity.class);
+                startActivity(i);
+                finish();
+                return;
+            }
+
         }
     }
 
