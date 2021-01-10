@@ -2,6 +2,7 @@ package com.android.moneychanger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -181,7 +182,8 @@ public class RequestorMainActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
 
-        //update db
-        Toast.makeText(this,"hello",Toast.LENGTH_LONG).show();
+        //open choose dealer activity for choosing dealer
+        Intent i = new Intent(getApplicationContext(), ChooseDealerActivity.class);
+        startActivity(i);
     }
 }

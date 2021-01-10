@@ -235,7 +235,7 @@
                 android:layout_weight="1"
                 android:onClick="sendMessage"
                 android:padding="8dp"
-                android:text="Place order"
+                android:text="Proceed to choose Dealer"
                 android:textAllCaps="false" />
         </LinearLayout>
 

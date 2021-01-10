@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoneyChanger">
-        <activity android:name=".RequestorMainActivity"></activity>
+        <activity
+            android:name=".ChooseDealerActivity"
+            android:label="@string/title_activity_choose_dealer"
+            android:theme="@style/Theme.MoneyChanger.NoActionBar"></activity>
+        <activity android:name=".OrdersActivity" />
+        <activity android:name=".DealerActivity" />
+        <activity android:name=".RequestorMainActivity" />
         <activity android:name=".Login.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login.AuthenticationActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

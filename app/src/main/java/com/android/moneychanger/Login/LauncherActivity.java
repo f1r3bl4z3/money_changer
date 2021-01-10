@@ -25,7 +25,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(LauncherActivity.this, RequestorMainActivity.class);
+            Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
             return;
